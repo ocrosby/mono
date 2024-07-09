@@ -26,6 +26,13 @@ jobs:
       - name: Run golangci-lint
         run: golangci-lint run ./...
 
+      - name: Install gocyclo
+        run: go install github.com/fzipp/gocyclo/cmd/gocyclo@latest
+
+      # Optional: Run gocyclo with a specific complexity threshold (e.g., 15) across your project
+      - name: Run gocyclo
+        run: gocyclo -over 15 .
+
   test:
     name: Test
     runs-on: ubuntu-latest
