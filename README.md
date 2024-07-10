@@ -2,7 +2,7 @@
 
 A general purpose utility for building Go with multi-module workspaces.
 
-![CI](https://github.com/ocrosby/mono/actions/workflows/workflow-file.yml/badge.svg)
+[![CI](https://github.com/ocrosby/mono/actions/workflows/ci.yml/badge.svg)](https://github.com/ocrosby/mono/actions/workflows/ci.yml)
 
 # References
 
