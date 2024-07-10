@@ -66,7 +66,7 @@ A: Follow the installation instructions and run `mono help` to see available com
 
 **Q: How can I contribute to the project?**
 
-A: Follow the steps outlined in the Contributing section.
+A: Follow the steps outlined in the [Contributing](docs/CONTRIBUTING.md) section.
 
 ## Acknowledgements
 
