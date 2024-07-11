@@ -1,18 +1,17 @@
-package cmd_test
+package cmd
 
 import (
 	"bytes"
 	"strings"
 	"testing"
 
-	target "github.com/ocrosby/mono/cmd"
 	"github.com/spf13/cobra"
 )
 
 // Setup function that optionally returns a teardown function.
 func setup() (*cobra.Command, *bytes.Buffer, func()) {
 	// Create a new instance of VersionCmd
-	cmd := target.NewVersionCmd()
+	cmd := NewVersionCmd()
 
 	// Perform setup tasks here (if any)
 	b := bytes.NewBufferString("")
@@ -41,7 +40,7 @@ func TestVersionCommand(t *testing.T) {
 		t.Fatalf("expected \"%s\" to start with \"%s\"", output, expectedVersionPrefix)
 	}
 
-	if versionString, err := target.ReadVersionFromRoot(); err != nil {
+	if versionString, err := ReadVersionFromRoot(); err != nil {
 		t.Fatalf("ReadVersionFromRoot() failed: %v", err)
 	} else if !strings.Contains(output, versionString) {
 		t.Fatalf("expected \"%s\" to contain \"%s\"", output, versionString)
