@@ -1,6 +1,6 @@
-.PHONY: deps lint complexity test cover clean
+.PHONY: deps lint complexity test cover clean build
 
-all: deps lint complexity test cover
+all: deps lint complexity test cover build
 
 COVERAGE_THRESHOLD = 69
 
@@ -10,12 +10,13 @@ deps:
 	@which gocyclo || go install github.com/fzipp/gocyclo/cmd/gocyclo@latest
 
 clean:
+	@rm -rf bin
 	@rm -rf coverage.out
 
-lint:
+lint: deps
 	golangci-lint run ./...
 
-complexity:
+complexity: deps
 	gocyclo .
 
 test:
@@ -35,3 +36,7 @@ cover:
 			exit 1; \
 		fi; \
 	}
+
+build: lint test cover
+	@echo "Building the project ..."
+	@go build -o ./bin/mono ./cmd/...
