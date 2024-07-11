@@ -8,6 +8,7 @@ deps:
 	@which golangci-lint || go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 	@which cobra || go install github.com/spf13/cobra-cli@latest
 	@which gocyclo || go install github.com/fzipp/gocyclo/cmd/gocyclo@latest
+	@go mod download
 
 clean:
 	@rm -rf bin
@@ -37,6 +38,6 @@ cover:
 		fi; \
 	}
 
-build: lint test cover
+build:
 	@echo "Building the project ..."
 	@go build -o ./bin/mono ./cmd/...
