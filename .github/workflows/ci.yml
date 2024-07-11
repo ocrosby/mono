@@ -46,5 +46,10 @@ jobs:
       - name: Download dependencies
         run: go mod download
 
-      - name: Run tests
-        run: go test ./... -cover
+      - name: Run Unit Tests
+        run: |
+          make test
+
+      - name: Check Coverage
+        run: |
+          make cover
