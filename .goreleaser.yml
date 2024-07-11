@@ -1,0 +1,5 @@
+# .goreleaser.yml
+before:
+  hooks:
+    # This hook can be used to ensure the VERSION file is updated before the release
+    - echo "{{ .Version }}" > VERSION
